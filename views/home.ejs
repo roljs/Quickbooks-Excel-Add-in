@@ -15,7 +15,9 @@
   <script type="text/javascript" src="<%= appCenter %>/Content/IA/intuit.ipp.anywhere-1.3.1.js"></script>
   <script>
     intuit.ipp.anywhere.setup({
-      grantUrl: 'https://localhost:' + <%= port %> + '/requestToken',
+      //grantUrl: 'https://localhost:' + <%= port %> + '/requestToken',
+      grantUrl: 'https://agave-node.azurewebsites.net/requestToken',
+      
       datasources: {
         quickbooks : true,  // set to false if NOT using Quickbooks API
         payments : false    // set to true if using Payments API
