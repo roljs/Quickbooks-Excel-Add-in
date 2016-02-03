@@ -7,18 +7,14 @@ var debug = require('debug')('myfirstexpressapp:server');
 
 var consumerKey    = 'qyprdgdAdo87q3etZEooPVomcAIGFr',
     consumerSecret = 'Ty24EXbvhqb8OEhBhc4B2VheuTKEQgUveI7fzgqa',
-    accessToken    = {contents:"empty"},
+    accessToken    = {},
     realmId        = ''
 
 exports.init = function (mainApp){
     var app = mainApp;
 
     app.get('/',function(req,res){
-    res.redirect('/start');
-    })
-
-    app.get('/start', function(req, res) {
-    res.render('home.ejs', {port:6000, appCenter: QuickBooks.APP_CENTER_BASE})
+        res.redirect('/home.html');
     })
 
     app.get('/requestToken', function(req, res) {
@@ -61,8 +57,8 @@ exports.init = function (mainApp){
             debug(accessToken)
             debug(postBody.oauth.realmId)
             
-            res.redirect('/close.html')
-
+            res.redirect('/close.html?_host_Info=Excel|Win32|16.01|en-US|telemetry|isDialog') 
+            //Note: The query string is only needed to workaround a known issue which causes context loss on server-side redirects.
         })
     })
 
@@ -80,11 +76,21 @@ exports.init = function (mainApp){
     
     })
 
-    app.get('/token', function(req, res) {
+    app.get('/getToken', function(req, res) {
 
         debug("Requested: " + accessToken)
         res.set("Expires", "0");
         res.send(accessToken);
+    
+    })
+
+
+    app.get('/clearToken', function(req, res) {
+
+        debug("Token cleared")
+        accessToken = {};
+        res.set("Expires", "0");
+        res.status(200).end();
     
     })
 

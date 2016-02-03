@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('myfirstexpressapp:server');
 var http = require('http');
 
@@ -35,10 +35,8 @@ var https = require('https');
 var fs = require('fs');
 var sslPort = 6000; 
 var options = {
-  //key: fs.readFileSync('/users/rolandoj/onedrive/documents/rolandoj-key.pem'),
-  //cert: fs.readFileSync('/users/rolandoj/onedrive/documents/rolandoj-cert.pem')
-  key: fs.readFileSync('../rolandoj-key.pem'),
-  cert: fs.readFileSync('../rolandoj-cert.pem')
+  key: fs.readFileSync('rolandoj-key.pem'),
+  cert: fs.readFileSync('rolandoj-cert.pem')
 };
 
 var sslServer = https.createServer(options, app);
