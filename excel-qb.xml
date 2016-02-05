@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TaskPaneApp" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides">
-  <Id>18e8476b-cb5c-4723-b2d1-ce0ae6b2f6e3</Id>
+  <Id>023b3ee0-dd4c-46e8-a3ee-26adc0747d81</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Rolando Jimenez</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Trdemo with CollabDb"/>
+  <DisplayName DefaultValue="Excel on QuickBooks (Azure)"/>
   <Description DefaultValue="Collaborate on data from QuickBooks using Excel to select and analyze"/>
     <AppDomains>
       <AppDomain>https://appcenter.intuit.com/</AppDomain>
@@ -34,7 +34,7 @@
               
               <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
               <!-- Documentation includes all the IDs currently tested to work -->
-              <OfficeTab id="TabHome">
+              <OfficeTab id="TabData">
                  <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
                 <Group id="Qb.Group1Id1">
                   <!--Label for your group. resid must point to a ShortString resource -->
