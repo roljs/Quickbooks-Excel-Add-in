@@ -1,21 +1,15 @@
-
 <html>
 
 <head>
-    <script src="https://officejsbeta.azurewebsites.net/office.debug.js"></script>
-
-    <script>
-        //If inside Office dialog, the message parent to close the dialog
-        Office.initialize = function (reason) {
-            Office.context.ui.messageParent("success");
-        }
-        
-        //This closes the window if in browser. Will be ignored in OFfice dialog
-        window.open('', '_self', '');
-        window.close();
-
-    </script>
-
+    
+        <script src="https://officejsbeta.azurewebsites.net/office.debug.js"></script>
+    
+        <script>
+            //If inside Office dialog, the message parent to close the dialog
+            Office.initialize = function (reason) {
+                Office.context.ui.messageParent("success");
+            }
+        </script>
 </head>
 
 <body>

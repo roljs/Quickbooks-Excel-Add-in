@@ -21,7 +21,6 @@ exports.init = function (mainApp){
     var postBody = {
         url: QuickBooks.REQUEST_TOKEN_URL,
         oauth: {
-        //callback:        'https://localhost:' + 6000 + '/callback/',
         callback:        'https://agave-node.azurewebsites.net/callback/',
         consumer_key:    consumerKey,
         consumer_secret: consumerSecret

@@ -1,39 +1,26 @@
-var _open = window.open;
-var _timer;
-//window.open = function (URL,name,specs,replace) { window.location.href = URL; }
+intuit.ipp.anywhere.setup({
+    grantUrl: 'https://agave-node.azurewebsites.net/requestToken', datasources: {
+        quickbooks: true,  // set to false if NOT using Quickbooks API
+        payments: false    // set to true if using Payments API
+    }
+});
 
 Office.initialize = function (reason) {
     $(document).ready(function () {
 
         overrideWinOpen();
 
-        $('#btnGetAccounts').click(getAccounts);
         $('#btnGetPurchases').click(getPurchases);
+        $('#btnGetAccounts').click(getAccounts);
         $('#btnCreateReport').click(createReport);
         $('#btnSignOut').click(signOut);
+        $('#btnSendToCollabDb').click(sendToCollabDb);
+        $('#btnPostToCollabDb').click(postToCollabDb);
 
         init();
     });
 };
 
-function init() {
-    $.get("/getToken", function (data, status) {
-        if (data.oauth_token_secret) {
-            $("#welcomePanel").hide();
-            $("#actionsPanel").fadeIn("slow");
-        }
-        else {
-            $("#welcomePanel").fadeIn("slow");
-            $("#actionsPanel").hide();
-        }
-    });
-}
-
-function signOut() {
-    $.get("/clearToken", function (data, status) {
-        init();
-    });
-}
 
 var _dlg;
 function overrideWinOpen() {
@@ -57,11 +44,24 @@ function processMessage(arg) {
     }
 }
 
-function getAccounts() {
-    $.get("/getAccounts", function (data, status) {
-        createAccountsTable(data.QueryResponse.Account);
-    });
+function init() {
 
+    $.get("/getToken", function (data, status) {
+        if (data.oauth_token_secret) {
+            $("#welcomePanel").hide();
+            $("#actionsPanel").fadeIn("slow");
+        }
+        else {
+            $("#welcomePanel").fadeIn("slow");
+            $("#actionsPanel").hide();
+        }
+    });
+}
+
+function signOut() {
+    $.get("/clearToken", function (data, status) {
+        init();
+    });
 }
 
 function getPurchases() {
@@ -70,7 +70,6 @@ function getPurchases() {
     });
 
 }
-
 
 function createPurchasesTable(purchases) {
     Excel.run(function (ctx) {
@@ -129,6 +128,24 @@ function createPurchasesTable(purchases) {
 
 }
 
+function addTitle(sheet, range, start, titleText) {
+
+    var title = sheet.getRange(range);
+    title.format.fill.color = "336699";
+    title.format.font.color = "white";
+    title.format.font.size = 24;
+    title = sheet.getRange(start);
+    title.values = titleText;
+
+}
+
+function getAccounts() {
+    $.get("/getAccounts", function (data, status) {
+        createAccountsTable(data.QueryResponse.Account);
+    });
+
+}
+
 function createAccountsTable(accounts) {
 
     Excel.run(function (ctx) {
@@ -155,7 +172,7 @@ function createAccountsTable(accounts) {
 
         });
 
-        
+
         return ctx.sync()
 
     }).catch(function (error) {
@@ -165,8 +182,6 @@ function createAccountsTable(accounts) {
             console.log("Debug info: " + JSON.stringify(error.debugInfo));
         }
     });
-
-
 
 }
 
@@ -184,7 +199,7 @@ function createReport() {
             ['Check', '=SUMIF( Expenses!B:B, "Check", Expenses!E:E )'],
             ['Cash', '=SUMIF( Expenses!B:B, "Cash",Expenses!E:E )']];
         var currencyFormat = '_($* #,##0.00_);_($* (#,##0.00);_($* "-"??_);_(@_)';
-        sumRange.numberFormat = [[null, null],[null, currencyFormat],[null, currencyFormat],[null, currencyFormat]];
+        sumRange.numberFormat = [[null, null], [null, currencyFormat], [null, currencyFormat], [null, currencyFormat]];
         sumRange.format.autofitColumns();
 
         ctx.workbook.tables.add(address, true);
@@ -204,14 +219,26 @@ function createReport() {
     });
 }
 
+var accessToken = "";
+function sendToCollabDb() {
+    if (accessToken == "") {
+        Office.context.ui.displayDialogAsync("https://agave-node.azurewebsites.net/aadAuth.html",
+            { height: 40, width: 40, requireHTTPS: true },
+            function (result) {
+                _dlg = result.value;
+                _dlg.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogMessageReceived, function (arg) {
+                    var message = JSON.parse(arg.message); 
+                    if (message.status == "success") {
+                        _dlg.close();
+                        accessToken = message.accessToken;
+                        $('#collabDbPanel').show("slow");
 
-function addTitle(sheet, range, start, titleText) {
+                    }
+                });
+            });
 
-    var title = sheet.getRange(range);
-    title.format.fill.color = "336699";
-    title.format.font.color = "white";
-    title.format.font.size = 24;
-    title = sheet.getRange(start);
-    title.values = titleText;
-   
+    }else{
+        $('#collabDbPanel').toggle();
+    }
+    
 }
