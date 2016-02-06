@@ -10,7 +10,7 @@ function initAuth(){
         instance: 'https://login.microsoftonline.com/',
         //tenant: 'dmpimemsftdev.onmicrosoft.com',
         clientId: 'b6f31d09-b541-41ec-b085-41eab842cfdb',
-        postLogoutRedirectUri: "https://agave-node.azurewebsites.net/aadAuth.html",
+        postLogoutRedirectUri: "https://localhost:6000/aadAuth.html",
         cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
         endpoints: {
             /* 'target endpoint to be called': 'target endpoint's resource ID' */
@@ -19,7 +19,7 @@ function initAuth(){
 
     }
     var authContext = new AuthenticationContext(window.config);
-    authContext.redirectUri = "https://agave-node.azurewebsites.net/aadAuth.html";
+    authContext.redirectUri = "https://localhost:6000/aadAuth.html";
     authContext.handleWindowCallback(window.location.hash);
 
     var isCallback = false;

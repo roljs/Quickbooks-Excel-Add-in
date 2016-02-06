@@ -27,8 +27,8 @@ var request = require('request');
 var qs = require('querystring');
 var debug = require('debug')('myfirstexpressapp:server');
 
-var consumerKey = 'qyprdgdAdo87q3etZEooPVomcAIGFr';
-var consumerSecret = 'Ty24EXbvhqb8OEhBhc4B2VheuTKEQgUveI7fzgqa';
+var consumerKey = '<Paste your QuickBooks app consumerKey here>';
+var consumerSecret = '<Paste your QuickBooks app consumerSecret here>';
 var accessToken = {};
 var realmId = '';
 
@@ -41,7 +41,7 @@ app.get('/requestToken', function (req, res) {
     var postBody = {
         url: QuickBooks.REQUEST_TOKEN_URL,
         oauth: {
-            callback: 'https://agave-node.azurewebsites.net/callback/',
+            callback: 'https://localhost:6000/callback/',
             consumer_key: consumerKey,
             consumer_secret: consumerSecret
         }
