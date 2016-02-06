@@ -16,9 +16,9 @@ If you just want to use  add-in, just sideload `excel-qb.xml` manifest which wil
 ##Obtaining QuickBooks `consumerKey` and `consumerSecret`
 To be able to connect to QuickBooks Online, you need to:
 
-1. Register as a developer at [https://developer.intuit.com/](developer.intuit.com)
-2. Once registered, sign-in to [https://developer.intuit.com/](developer.intuit.com) and go to the [https://developer.intuit.com/v2/ui#/app/dashboard](apps dashboard)
-3. Copy the **consumerKey** and **consumerSecret** provided into the corresponding variables in `app.js`
+1. Register as a developer at [developer.intuit.com](https://developer.intuit.com/)
+2. Once registered, sign-in to [developer.intuit.com](https://developer.intuit.com/) and create a new app in the [apps dashboard](https://developer.intuit.com/v2/ui#/app/dashboard)
+3. Copy the **consumerKey** and **consumerSecret** from your new app into the corresponding variables in `app.js`
 
 ##Setting up CollabDb integration
 Contact rolandoj@microsoft.com for details.
