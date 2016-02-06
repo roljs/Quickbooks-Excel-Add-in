@@ -5,9 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -30,8 +27,8 @@ var request = require('request');
 var qs = require('querystring');
 var debug = require('debug')('myfirstexpressapp:server');
 
-var consumerKey = 'qyprdgdAdo87q3etZEooPVomcAIGFr';
-var consumerSecret = 'Ty24EXbvhqb8OEhBhc4B2VheuTKEQgUveI7fzgqa';
+var consumerKey = '<Paste you QuickBooks app consumerKey here>';
+var consumerSecret = '<Pasteyour  QuickBooks app consumerSecret here>';
 var accessToken = {};
 var realmId = '';
 
