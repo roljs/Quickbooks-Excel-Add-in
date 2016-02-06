@@ -41,7 +41,7 @@ app.get('/requestToken', function (req, res) {
     var postBody = {
         url: QuickBooks.REQUEST_TOKEN_URL,
         oauth: {
-            callback: 'https://agave-node.azurewebsites.net/callback/',
+            callback: 'https://localhost:6000/callback/',
             consumer_key: consumerKey,
             consumer_secret: consumerSecret
         }
