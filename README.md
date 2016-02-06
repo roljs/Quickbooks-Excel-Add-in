@@ -13,7 +13,7 @@ If you just want to use  add-in, just sideload `excel-qb.xml` manifest which wil
 6. `npm start`
 7. Start **Excel** and launch the Add-in via its  **QuickBooks/Connect** button on the **Home** ribbon tab
 
-##Obtaining Quickbooks `consumerKey` and `consumerSecret`
+##Obtaining QuickBooks `consumerKey` and `consumerSecret`
 To be able to connect to QuickBooks Online, you need to:
 
 1. Register as a developer at [https://developer.intuit.com/](developer.intuit.com)
