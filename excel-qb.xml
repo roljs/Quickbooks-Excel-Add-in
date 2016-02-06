@@ -90,7 +90,7 @@
           <bt:String id="residLabel4" DefaultValue="QuickBooks"></bt:String>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="residToolTip" DefaultValue="Connect with y9our QuickBooks Online account"></bt:String>
+          <bt:String id="residToolTip" DefaultValue="Connect with your QuickBooks Online account"></bt:String>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
