@@ -1,5 +1,5 @@
 # Quickbooks-Excel-Add-in
-An Excel add-in that allows you to import data from your Quickbooks Online account and export to CollabDb  
+An Excel add-in that allows you to import data from your Quickbooks Online account and export to CollabDb.  
 
 ##Using the add-in
 If you just want to use  add-in, just sideload `excel-qb.xml` manifest which will load it from an instance running on Azure Websites. 
