@@ -1,5 +1,5 @@
 intuit.ipp.anywhere.setup({
-    grantUrl: 'https://localhost:6000/requestToken', datasources: {
+    grantUrl: 'https://agave-node.azurewebsites.net/requestToken', datasources: {
         quickbooks: true,  // set to false if NOT using Quickbooks API
         payments: false    // set to true if using Payments API
     }
@@ -222,7 +222,7 @@ function createReport() {
 var accessToken = "";
 function sendToCollabDb() {
     if (accessToken == "") {
-        Office.context.ui.displayDialogAsync("https://localhost:6000/aadAuth.html",
+        Office.context.ui.displayDialogAsync("https://agave-node.azurewebsites.net/aadAuth.html",
             { height: 40, width: 40, requireHTTPS: true },
             function (result) {
                 _dlg = result.value;
