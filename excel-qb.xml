@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Rolando Jimenez</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Excel on QuickBooks (Azure)"/>
+  <DisplayName DefaultValue="Excel on QuickBooks"/>
   <Description DefaultValue="Collaborate on data from QuickBooks using Excel to select and analyze"/>
     <AppDomains>
       <AppDomain>https://appcenter.intuit.com/</AppDomain>

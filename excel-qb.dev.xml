@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TaskPaneApp" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides">
-  <Id>023b3ee0-dd4c-46e8-a3ee-26adc0747d81</Id>
+  <Id>a6b9a033-1693-4d50-8cc1-3cccfe7f0403</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Rolando Jimenez</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Excel on QuickBooks (Azure)"/>
-  <Description DefaultValue="Collaborate on data from QuickBooks using Excel to select and analyze"/>
+  <DisplayName DefaultValue="Excel on QuickBooks (Dev)"/>
+  <Description DefaultValue="[Developer Version] Collaborate on data from QuickBooks using Excel to select and analyze"/>
     <AppDomains>
       <AppDomain>https://appcenter.intuit.com/</AppDomain>
       <AppDomain>https://login.microsoftonline.com/</AppDomain>
