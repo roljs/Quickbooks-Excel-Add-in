@@ -14,7 +14,7 @@
     <Host Name="Workbook"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://agave-node.azurewebsites.net/Home.html"/>
+    <SourceLocation DefaultValue="https://localhost:6000/Home.html"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
   <!--BeginAddinCommandsMode integration-->
@@ -81,7 +81,7 @@
           <bt:Image id="icon1_80x80" DefaultValue="https://i.imgur.com/xV3upTT.png"></bt:Image>
          </bt:Images>
         <bt:Urls>
-          <bt:Url id="residUnitConverterUrl" DefaultValue="https://agave-node.azurewebsites.net/home.html"></bt:Url>
+          <bt:Url id="residUnitConverterUrl" DefaultValue="https://localhost:6000/home.html"></bt:Url>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="residLabel" DefaultValue="QuickBooks"></bt:String>
