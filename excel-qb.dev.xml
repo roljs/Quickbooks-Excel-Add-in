@@ -34,7 +34,7 @@
               
               <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
               <!-- Documentation includes all the IDs currently tested to work -->
-              <OfficeTab id="TabData">
+              <OfficeTab id="TabHome">
                  <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
                 <Group id="Qb.Group1Id1">
                   <!--Label for your group. resid must point to a ShortString resource -->
@@ -64,7 +64,7 @@
                     <!--This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFuncion or ShowTaskpane-->
                     <Action xsi:type="ShowTaskpane">
                       <!--Provide a url resource id for the location that will be displayed on the taskpane -->
-                      <SourceLocation resid="residUnitConverterUrl" />
+                      <SourceLocation resid="residUrl" />
                     </Action>
                   </Control>
                 </Group>
@@ -81,7 +81,7 @@
           <bt:Image id="icon1_80x80" DefaultValue="https://i.imgur.com/xV3upTT.png"></bt:Image>
          </bt:Images>
         <bt:Urls>
-          <bt:Url id="residUnitConverterUrl" DefaultValue="https://localhost:6000/home.html"></bt:Url>
+          <bt:Url id="residUrl" DefaultValue="https://localhost:6000/home.html"></bt:Url>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="residLabel" DefaultValue="QuickBooks"></bt:String>
@@ -90,7 +90,7 @@
           <bt:String id="residLabel4" DefaultValue="QuickBooks"></bt:String>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="residToolTip" DefaultValue="Connect with y9our QuickBooks Online account"></bt:String>
+          <bt:String id="residToolTip" DefaultValue="Connect with your QuickBooks Online account"></bt:String>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>

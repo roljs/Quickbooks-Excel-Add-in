@@ -17,43 +17,24 @@
     <SourceLocation DefaultValue="https://agave-node.azurewebsites.net/Home.html"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
-  <!--BeginAddinCommandsMode integration-->
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
-      <!-- Optional, override the description of the Add-in -->
       <Description resid="residToolTip" />
-      <!--Required, hosts node. Each host can have a different set of commands -->
       <Hosts>
-        <!--Specific host. Workbook=Excel, Document=Word, Presentation=PowerPoint -->
         <Host xsi:type="Workbook">
-          <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
           <DesktopFormFactor>
-  
-            
-            <!--PrimaryCommandSurface==Main Office Ribbon-->
             <ExtensionPoint xsi:type="PrimaryCommandSurface">
-              
-              <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
-              <!-- Documentation includes all the IDs currently tested to work -->
-              <OfficeTab id="TabHome">
-                 <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
+              <OfficeTab id="TabData">
                 <Group id="Qb.Group1Id1">
-                  <!--Label for your group. resid must point to a ShortString resource -->
                   <Label resid="residLabel4" />
-                  <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
-                  <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
                   <Icon>
                     <bt:Image size="16" resid="icon1_16x16" />
                     <bt:Image size="32" resid="icon1_32x32" />
                     <bt:Image size="80" resid="icon1_80x80" />
                   </Icon>
-                   <!--Control. It can be of type "Button" or "Menu" -->
                   <Control xsi:type="Button" id="Button3Id1">
-                    <!--Label for your button. resid must point to a ShortString resource -->
                     <Label resid="residLabel3" />
                     <Supertip>
-                      <!--ToolTip title. resid must point to a ShortString resource -->
                       <Title resid="residLabel" />
-                       <!--ToolTip description. resid must point to a LongString resource -->
                       <Description resid="residToolTip" />
                     </Supertip>
                     <Icon>
@@ -61,10 +42,8 @@
                       <bt:Image size="32" resid="icon1_32x32" />
                       <bt:Image size="80" resid="icon1_80x80" />
                     </Icon>
-                    <!--This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFuncion or ShowTaskpane-->
                     <Action xsi:type="ShowTaskpane">
-                      <!--Provide a url resource id for the location that will be displayed on the taskpane -->
-                      <SourceLocation resid="residUnitConverterUrl" />
+                      <SourceLocation resid="residUrl" />
                     </Action>
                   </Control>
                 </Group>
@@ -81,7 +60,7 @@
           <bt:Image id="icon1_80x80" DefaultValue="https://i.imgur.com/xV3upTT.png"></bt:Image>
          </bt:Images>
         <bt:Urls>
-          <bt:Url id="residUnitConverterUrl" DefaultValue="https://agave-node.azurewebsites.net/home.html"></bt:Url>
+          <bt:Url id="residUrl" DefaultValue="https://agave-node.azurewebsites.net/home.html"></bt:Url>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="residLabel" DefaultValue="QuickBooks"></bt:String>
@@ -93,6 +72,5 @@
           <bt:String id="residToolTip" DefaultValue="Connect with your QuickBooks Online account"></bt:String>
         </bt:LongStrings>
       </Resources>
-    </VersionOverrides>
-  
+    </VersionOverrides>  
 </OfficeApp>
