@@ -21,4 +21,4 @@ To be able to connect to QuickBooks Online, you need to:
 3. Copy the **consumerKey** and **consumerSecret** from your new app into the corresponding variables in `app.js`
 
 ##Setting up CollabDb integration
-Contact rolandoj@microsoft.com for details.
+Contact [rolandoj@microsoft.com](mailto:rolandoj@microsoft.com) for details.
