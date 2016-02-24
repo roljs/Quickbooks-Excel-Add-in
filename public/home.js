@@ -219,9 +219,30 @@ function createReport() {
     });
 }
 
-var accessToken = "";
+var accessToken = null;
+
+var adalConfig = {
+    instance: 'https://login.microsoftonline.com/',
+    //tenant: 'dmpimemsftdev.onmicrosoft.com',
+    clientId: 'b6f31d09-b541-41ec-b085-41eab842cfdb',
+    postLogoutRedirectUri: "https://localhost:6000/aadAuth.html",
+    cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+    endpoints: {
+        /* 'target endpoint to be called': 'target endpoint's resource ID' */
+        'https://lists.office.com': 'https://lists.office.com'
+    }
+
+}
+
+   
 function sendToCollabDb() {
-    if (accessToken == "") {
+    var authContext = new AuthenticationContext(adalConfig);
+    authContext.redirectUri = "https://localhost:6000/aadAuth.html";
+    authContext.handleWindowCallback(window.location.hash);
+
+    accessToken = authContext.getCachedToken("https://lists.office.com"); 
+
+    if (accessToken == null) {
         Office.context.ui.displayDialogAsync("https://localhost:6000/aadAuth.html",
             { height: 40, width: 40, requireHTTPS: true },
             function (result) {
